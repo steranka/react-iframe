@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <script type="text/javascript">
+      document.write("Closure Demo!!");
+      window.onload = function closureDemoParentFunction(paramA) {
+        var a = paramA;
+        return function closureDemoInnerFunction(paramB) {
+          alert(a + " " + paramB);
+        };
+      };
+      var x = closureDemoParentFunction("outer x");
+      x("inner x");
+    </script>
+  </body>
+</html>
