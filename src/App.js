@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+
 function App() {
-  let [memToAllocateInKib, setMemToAllocateInKib] = useState(5000);
+  let [memToAllocateInKib, setMemToAllocateInKib] = useState(500);
   let [mySpace, setMySpace] = useState("");
+  let [detachedTree, setDetachedTree] = useState(null);
+
 
   function growMemory() {
     let memInBytes = memToAllocateInKib * 1000;
@@ -32,6 +35,17 @@ function App() {
     setMemToAllocateInKib(ev.target.value);
   }
 
+
+  function createDetatched() {
+    let ul = document.createElement('ul');
+    for (let i = 0; i < 10; i++) {
+      let li = document.createElement('li');
+      ul.appendChild(li);
+    }
+    setDetachedTree(ul);
+    console.log('detachedTree is', ul);
+  }
+
   return (
     <div className="App">
       <div>
@@ -41,8 +55,8 @@ function App() {
           id="name"
           name="name"
           minLength="4"
-          maxLength="12"
-          size="12"
+          maxLength="8"
+          size="8"
           onChange={onChangeMemToAllocate}
           value={memToAllocateInKib}
         />
@@ -52,7 +66,9 @@ function App() {
         <button onClick={reduceMemory}>Reduce memory</button>
       </div>
       <div>Memory currently allocated: {mySpace.length/1000}KiB</div>
-
+      <div>
+        <button onClick={createDetatched}>Create Detached DOM nodes</button>
+      </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -67,6 +83,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <div><a href="./parent.html">Open parent.html</a></div>
     </div>
   );
 }

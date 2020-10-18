@@ -3,6 +3,19 @@
   <head>
     <title>React App Parent</title>
     <script src="./parent.js"></script>
+    <style>
+      .acme-frame-wrapper {
+        height: 50%;
+        width: 33%;
+        display: inline-block;
+        border: black 5px solid;
+        box-sizing: border-box;
+      }
+      iframe {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -10,7 +23,7 @@
     </div>
     <button onclick="openIframe()">Open IFRAME</button>
     <button onclick="closeIframe()">Close IFRAME</button><br/>
-    <div id="append-react-app" style="height:1400px"></div>
+    <div id="append-react-app"></div>
     <div>After react app</div>
   </body>
 </html>

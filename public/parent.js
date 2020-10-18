@@ -2,14 +2,11 @@ var gIframes = [];
 
 function openIframe() {
   console.log("openIframe called");
-  let frameWrapper = document.createElement("div");
-  frameWrapper.id = "acme-frame-wrapper";
-  frameWrapper.style.position = "absolute";
-  frameWrapper.style.zIndex = 9000;
-  frameWrapper.style.height = "800px";
-  frameWrapper.style.width = "1024px";
+  // let frameWrapper = document.createElement("div");
+  // frameWrapper.className = "acme-frame-wrapper";
 
   let iFrame = createIframe();
+  // frameWrapper.appendChild(iFrame);
   document.getElementById("append-react-app").appendChild(iFrame);
   gIframes.push(iFrame);
 }
@@ -26,10 +23,14 @@ function closeIframe() {
   if (gIframes.length > 0) {
     let deleteIdx = gIframes.length - 1;
     let iFrameToDelete = gIframes[deleteIdx];
+    //let acmeFrameWrapperDiv = iFrameToDelete.parentNode;
     iFrameToDelete.remove();
+    // acmeFrameWrapperDiv.remove();
     iFrameToDelete = null;
+    // acmeFrameWrapperDiv = null;
     gIframes.splice(deleteIdx);
+    console.log("gIframes.length=" + gIframes.length, gIframes);
   } else {
-    console.log("iFrame is already closed!");
+    console.log("No iFrames are open.");
   }
 }
