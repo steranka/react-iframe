@@ -5,11 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import AppStore from "./AppStore";
 
-let store = new AppStore();
+let appStore = new AppStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App store={store}/>
+    <App store={appStore}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
